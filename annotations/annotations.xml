@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZGF_BILCNC_APPROVE_SRV/$metadata">
+		<edmx:Include Alias="ZGF_BILCNC_APPROVE_SRV" Namespace="ZGF_BILCNC_APPROVE_SRV"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.lex.bilcnc.apr.zg_bilcnc_apr.ZGF_BILCNC_APPROVE_SRV">
+			<!--===============================================================================
+                Entity Type from chosen collection 
+                ================================================================================-->
+			<!--===============================================================================
+                Entity Type from chosen navigation property
+                ================================================================================-->
+			<Annotations Target="ZGF_BILCNC_APPROVE_SRV.ZG_C_BILCNC_HEADType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="GeneralInformation"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@GeneralInfoFacetLabel}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Label" String="{@i18n&gt;@GeneralInfoFacetLabel}"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;@SecondFacetLabel}"/>
+							<PropertyValue Property="Target" AnnotationPath="to_Item/@UI.LineItem"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="to_Status/@UI.LineItem"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;STATUS}"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZGF_BILCNC_APPROVE_SRV.ZG_C_BILCNC_ITEMType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="GeneralInformation"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;ITEM_DETAILS}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Label" String="{@i18n&gt;ITEM_DETAILS}"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZGF_BILCNC_APPROVE_SRV.ZG_C_BILCNC_STATUSType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="GeneralInformation"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;STATUS}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Label" String="{@i18n&gt;STATUS}"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZGF_BILCNC_APPROVE_SRV.ZG_C_BILCNC_HEADType/typeDesc">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="ZG_I_BILCNC_REQTYPE_VH"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;SELECT_REQUEST_TYPE}"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="req_type"/>
+								</Record>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="typeDesc"/>
+									<PropertyValue Property="ValueListProperty" String="Reqtype"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZGF_BILCNC_APPROVE_SRV.ZG_C_BILCNC_HEADType/categoryDesc">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="ZG_I_BILCNC_REVC_VH"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;SELECT_REVERSAL_CATEGORY}"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="rev_cat"/>
+								</Record>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="categoryDesc"/>
+									<PropertyValue Property="ValueListProperty" String="RevCategory"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZGF_BILCNC_APPROVE_SRV.ZG_C_BILCNC_HEADType/geo">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="ZG_I_GEO_VH"/>
+						<PropertyValue Property="Label" String="{@i18n&gt;SELECT_GEO}"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="geo_code"/>
+								</Record>
+								<Record Type="Common.ValueListParameterInOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="geo"/>
+									<PropertyValue Property="ValueListProperty" String="GeoDesc"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZGF_BILCNC_APPROVE_SRV.ZGF_BILCNC_APPROVE_SRV_Entities/ZG_C_BILCNC_HEADAction_reject">
+				<Annotation Term="com.sap.vocabularies.Common.v1.SideEffects" Qualifier="GlobalSideEffect">
+					<Record>
+						<PropertyValue Property="status" EnumMember="Common.EffectType/ValueChange"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZGF_BILCNC_APPROVE_SRV.ZGF_BILCNC_APPROVE_SRV_Entities/ZG_C_BILCNC_HEADAction_approve">
+				<Annotation Term="com.sap.vocabularies.Common.v1.SideEffects" Qualifier="GlobalSideEffect">
+					<Record>
+						<PropertyValue Property="status" EnumMember="Common.EffectType/ValueChange"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZGF_BILCNC_APPROVE_SRV.ZGF_BILCNC_APPROVE_SRV_Entities/ZG_C_BILCNC_HEADAction_reject/UserComment">
+				<Annotation Term="Common.Label" String="{@i18n&gt;COMMENT}"/>
+			</Annotations>
+			<Annotations Target="ZGF_BILCNC_APPROVE_SRV.ZGF_BILCNC_APPROVE_SRV_Entities/ZG_C_BILCNC_HEADAction_approve/UserComment">
+				<Annotation Term="Common.Label" String="{@i18n&gt;COMMENT}"/>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
